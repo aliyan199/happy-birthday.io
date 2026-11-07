@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Aimen! 🎂 | The Ultimate Pookie PUBG Edition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Fredoka:wght@400;600;700&family=Orbitron:wght@500;700;900&family=Outfit:wght@300;400;600;700;900&family=Amiri:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <!-- Interactive Custom Cursor Elements -->
+  <div class="custom-cursor" id="customCursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- CINEMATIC LANDING PAGE INTRO REVEAL OVERLAY -->
+  <div class="intro-reveal-overlay" id="introRevealOverlay">
+    <div class="intro-scanlines"></div>
+    <div class="intro-particles-bg" id="introParticlesBg"></div>
+
+    <div class="intro-hud-top">
+      <div class="intro-mission-tag">
+        <span class="intro-blinking-dot"></span>
+        <span>CLASSIFIED DROP // CODE: AIMEN-BDAY-2026</span>
+      </div>
+      <button class="skip-intro-btn" id="skipIntroBtn">SKIP INTRO ⏩</button>
+    </div>
+
+    <div class="intro-content-card">
+      <div class="intro-radar-scanner">
+        <div class="radar-sweep"></div>
+        <div class="radar-dot dot-aimen"></div>
+      </div>
+
+      <div class="intro-badge">
+        <span class="badge-flare-icon">🚨</span>
+        <span>SPECIAL AIRDROP MISSION DETECTED</span>
+      </div>
+
+      <h1 class="intro-title">
+        INCOMING BIRTHDAY DROP FOR <span class="highlight-intro-name">AIMEN</span>
+      </h1>
+
+      <p class="intro-subtitle">
+        Pochinki radar has detected extreme amounts of <strong>Pookie Aura</strong>, 
+        <strong>Sixtino Seventino energy</strong>, and maximum celebration levels!
+      </p>
+
+      <!-- The Interactive Flare Gun Launchpad -->
+      <div class="intro-flare-trigger-wrap">
+        <div class="flare-laser-target"></div>
+        <button class="intro-launch-btn" id="introLaunchBtn">
+          <span class="launch-btn-glow"></span>
+          <span class="launch-icon-animated">🔫</span>
+          <span class="launch-btn-texts">
+            <span class="launch-btn-main">FIRE BIRTHDAY FLARE!</span>
+            <span class="launch-btn-sub">Click to breach & unlock the celebration ✨</span>
+          </span>
+          <span class="launch-arrow">🚀</span>
+        </button>
+      </div>
+
+      <div class="intro-meta-tags">
+        <span class="meta-tag">🪂 PROTOCOL: AIRDROP DROP-IN</span>
+        <span class="meta-tag">💖 LEVEL 3 POOKIE QUEEN</span>
+        <span class="meta-tag">🍗 CHICKEN DINNER GUARANTEED</span>
+      </div>
+    </div>
+
+    <!-- The Rocket Shell that flies up when clicked -->
+    <div class="intro-rocket-shell" id="introRocketShell">
+      <div class="rocket-trail"></div>
+      <span class="rocket-head">🔥</span>
+    </div>
+
+    <!-- Split Shutter Doors for Cinematic Reveal -->
+    <div class="shutter-door shutter-door-left" id="shutterLeft"></div>
+    <div class="shutter-door shutter-door-right" id="shutterRight"></div>
+  </div>
+
+  <!-- Ambient Background Canvas & Floating FX -->
+  <canvas id="ambientCanvas"></canvas>
+  <div class="floating-items-container" id="floatingDecor"></div>
+
+  <!-- Top Gamer / Pookie HUD Navigation -->
+  <header class="hud-header">
+    <div class="hud-left">
+      <div class="player-tag">
+        <span class="live-pulse"></span>
+        <span class="tag-title">PLAYER:</span>
+        <span class="player-name">AIMEN_LVL_UP</span>
+        <span class="rank-badge">👑 SIXTINO QUEEN</span>
+      </div>
+    </div>
+    <nav class="hud-nav">
+      <a href="#hero" class="nav-link active">🎂 The Wish</a>
+      <a href="#dua" class="nav-link special-dua-nav">🤲 Sacred Dua</a>
+      <a href="#scope-section" class="nav-link">🎯 8x Scope Reveal</a>
+      <a href="#games" class="nav-link">🎮 Brainrot Games</a>
+      <a href="#soundboard" class="nav-link">🔊 SFX Board</a>
+      <a href="#loot-crate" class="nav-link">🎁 Airdrop Crate</a>
+    </nav>
+    <div class="hud-right">
+      <button class="hud-btn replay-btn" id="replayIntroBtn" title="Replay the cinematic landing page reveal">
+        <span class="btn-icon">🎬</span>
+        <span class="btn-label">REPLAY DROP</span>
+      </button>
+      <button class="hud-btn" id="sfxToggleBtn" title="Toggle Sound Effects">
+        <span class="btn-icon">🔊</span>
+        <span class="btn-label">SFX: ON</span>
+      </button>
+      <button class="hud-btn music-btn" id="musicToggleBtn" title="Toggle Birthday Melody">
+        <span class="music-bars">
+          <i></i><i></i><i></i><i></i>
+        </span>
+        <span class="btn-label">BGM: OFF</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="main-content">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="hero-glow-blob blob-1"></div>
+      <div class="hero-glow-blob blob-2"></div>
+      
+      <div class="hero-container">
+        <!-- Floating PUBG & Pookie Badge -->
+        <div class="pill-badge animate-float">
+          <span class="badge-icon">🪂</span>
+          <span>AIRDROP INCOMING: SPECIAL BIRTHDAY PROTOCOL</span>
+          <span class="badge-fire">🔥 +1,000,000 AURA</span>
+        </div>
+
+        <h2 class="sub-greeting">TODAY WE CELEBRATE THE ONE & ONLY</h2>
+        
+        <h1 class="main-title glitch-text" data-text="HAPPY BIRTHDAY AIMEN!">
+          HAPPY BIRTHDAY <span class="highlight-name">AIMEN!</span>
+        </h1>
+
+        <div class="pookie-tagline">
+          <span class="tag-pill">💖 THE ULTIMATE POOKIE</span>
+          <span class="tag-pill">🍗 CHICKEN DINNER CHAMPION</span>
+          <span class="tag-pill">🤌 SIXTINO SEVENTINO CERTIFIED</span>
+        </div>
+
+        <!-- 3D Holographic Showcase Card -->
+        <div class="hero-avatar-card tilt-card" id="heroCard">
+          <div class="card-glass-shine"></div>
+          <div class="helmet-showcase">
+            <div class="crate-smoke-fx"></div>
+            <!-- PUBG Level 3 Helmet with Pookie Ribbon SVG -->
+            <svg class="l3-helmet-svg" viewBox="0 0 200 200" width="160" height="160">
+              <defs>
+                <linearGradient id="helmMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#4a5568"/>
+                  <stop offset="50%" stop-color="#2d3748"/>
+                  <stop offset="100%" stop-color="#1a202c"/>
+                </linearGradient>
+                <linearGradient id="visorGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.9"/>
+                  <stop offset="50%" stop-color="#ff2d75" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#ffd700" stop-opacity="0.9"/>
+                </linearGradient>
+                <linearGradient id="bowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ff758c"/>
+                  <stop offset="100%" stop-color="#ff2d75"/>
+                </linearGradient>
+              </defs>
+              <!-- Outer Helmet Dome -->
+              <ellipse cx="100" cy="95" rx="65" ry="55" fill="url(#helmMetal)" stroke="#718096" stroke-width="4"/>
+              <!-- Brow Ridge -->
+              <path d="M 35 90 Q 100 70 165 90" fill="none" stroke="#2d3748" stroke-width="12" stroke-linecap="round"/>
+              <!-- Visor Plate with Slits -->
+              <rect x="45" y="95" width="110" height="40" rx="8" fill="#111" stroke="#4a5568" stroke-width="3"/>
+              <!-- Visor Slit Glow (Gamer RGB / Cyber Aura) -->
+              <rect x="55" y="105" width="90" height="8" rx="4" fill="url(#visorGlow)"/>
+              <rect x="65" y="120" width="70" height="6" rx="3" fill="url(#visorGlow)"/>
+              <!-- Chin Guard -->
+              <path d="M 55 135 L 75 160 L 125 160 L 145 135 Z" fill="#2d3748" stroke="#1a202c" stroke-width="3"/>
+              <!-- Pookie Pink Bow on Top -->
+              <g transform="translate(100, 42)">
+                <!-- Left Ribbon -->
+                <path d="M 0,0 C -25,-25 -40,10 0,0" fill="url(#bowGrad)" stroke="#fff" stroke-width="1.5"/>
+                <!-- Right Ribbon -->
+                <path d="M 0,0 C 25,-25 40,10 0,0" fill="url(#bowGrad)" stroke="#fff" stroke-width="1.5"/>
+                <!-- Center Knot & Sparkle -->
+                <circle cx="0" cy="0" r="6" fill="#ffd700" stroke="#fff" stroke-width="1.5"/>
+              </g>
+              <!-- Cute Cheeks Sparkle -->
+              <circle cx="45" cy="115" r="4" fill="#ff758c" opacity="0.8"/>
+              <circle cx="155" cy="115" r="4" fill="#ff758c" opacity="0.8"/>
+            </svg>
+
+            <div class="helmet-stats">
+              <div class="stat-row">
+                <span>POOKIE POWER:</span>
+                <div class="stat-bar"><div class="stat-fill" style="width: 100%;"></div></div>
+                <span class="stat-num">MAX</span>
+              </div>
+              <div class="stat-row">
+                <span>BRAINROT RIZZ:</span>
+                <div class="stat-bar"><div class="stat-fill" style="width: 99.9%;"></div></div>
+                <span class="stat-num">999k</span>
+              </div>
+              <div class="stat-row">
+                <span>SIXTINO SEVENTINO:</span>
+                <div class="stat-bar"><div class="stat-fill" style="width: 100%;"></div></div>
+                <span class="stat-num">∞</span>
+              </div>
+            </div>
+          </div>
+          <div class="helmet-caption">
+            <span class="sparkle">✨</span> Level 3 Birthday Helmet Equipped <span class="sparkle">✨</span>
+          </div>
+        </div>
+
+        <!-- Quick Interaction Actions -->
+        <div class="hero-actions">
+          <button class="action-btn primary-flare-btn" id="fireFlareGunBtn">
+            <span class="btn-glow"></span>
+            <span class="icon">🔫</span>
+            <span>FIRE FLARE GUN! (CELEBRATE)</span>
+          </button>
+          <button class="action-btn secondary-btn" id="scrollDuaBtn">
+            <span class="icon">🤲</span>
+            <span>READ SPECIAL DUA</span>
+          </button>
+          <button class="action-btn game-launch-btn" id="playGamesBtn">
+            <span class="icon">🎮</span>
+            <span>PLAY BRAINROT GAMES</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: THE SPECIAL DUA (ELEGANT & SACRED) -->
+    <section id="dua" class="dua-section">
+      <div class="dua-wrapper">
+        <div class="dua-ornament top-ornament">✧ ﷽ ✧</div>
+        
+        <div class="dua-badge">
+          <span class="star-icon">🌟</span>
+          <span>DIL SE SPECIAL DUA FOR AIMEN</span>
+          <span class="star-icon">🌟</span>
+        </div>
+
+        <div class="dua-card glow-card">
+          <div class="dua-golden-border"></div>
+          
+          <div class="dua-urdu-box">
+            <h2 class="dua-quote-urdu">"Allah apka naseeb boht acha karey"</h2>
+            <div class="dua-translation">
+              Ameen Summa Ameen 🤲
+            </div>
+          </div>
+
+          <div class="dua-heartfelt-text">
+            <p>
+              May Allah Almighty bless your life with boundless peace, divine barakah, unlimited joy, 
+              and the sweetest chapters of success. May every road you walk lead to prosperity, 
+              every prayer in your heart find acceptance, and may you always remain surrounded 
+              by laughter, love, health, and radiant happiness.
+            </p>
+            <p class="dua-extra-wishes">
+              May you win every battle in life just like a flawless PUBG clutch, 
+              and may your destiny shine brighter than a thousand flare drops! 💖
+            </p>
+          </div>
+
+          <!-- Interactive Ameen Counter -->
+          <div class="ameen-action-area">
+            <button class="ameen-btn" id="ameenBtn">
+              <span class="ameen-glow"></span>
+              <span class="ameen-hands">🤲</span>
+              <span class="ameen-text">Say "Ameen" (+1 Blessing)</span>
+              <span class="ameen-counter-badge" id="ameenCount">777</span>
+            </button>
+            <div class="ameen-message" id="ameenNotice">Click to send heartfelt blessings to Aimen! ✨</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: CURSOR / POINTER REVEAL 8X SCOPE ZONE -->
+    <section id="scope-section" class="scope-reveal-section">
+      <div class="section-header">
+        <div class="sub-chip">🎯 POINTER REVEALING ANIMATION</div>
+        <h2 class="section-title">THE 8X SCOPE MYSTERY ZONE</h2>
+        <p class="section-desc">
+          Hover your mouse (or drag your finger) across the battle zone below to reveal hidden secret brainrot messages, 
+          easter eggs, and birthday wishes for Aimen!
+        </p>
+      </div>
+
+      <div class="scope-controls">
+        <span class="filter-label">Reveal Lens:</span>
+        <button class="lens-btn active" data-lens="scope">🎯 8X PUBG Scope</button>
+        <button class="lens-btn" data-lens="torch">🔦 Cyber Flashlight</button>
+        <button class="lens-btn" data-lens="pookie">💖 Pookie Pink Glow</button>
+      </div>
+
+      <div class="scope-canvas-wrapper" id="scopeContainer">
+        <!-- Hidden Background Layer (revealed only where pointer shines) -->
+        <div class="hidden-board-layer" id="revealedLayer">
+          <div class="secret-item item-1">
+            <div class="secret-badge">🍗 AIRDROP SECURED</div>
+            <h3>WINNER WINNER BIRTHDAY DINNER!</h3>
+            <p>Pochinki is cleared, the cake is secured for Aimen!</p>
+          </div>
+
+          <div class="secret-item item-2">
+            <div class="secret-badge">🤌 MEME OF THE YEAR</div>
+            <h3>SIXTINO SEVENTINO!</h3>
+            <p>Certified Pookie Brainrot Lore unlocked: Maximum Aura Achieved!</p>
+          </div>
+
+          <div class="secret-item item-3">
+            <div class="secret-badge">👑 QUEEN STATUS</div>
+            <h3>LEVEL 3 BIRTHDAY QUEEN</h3>
+            <p>No helmet can contain this much coolness & cuteness! ✨</p>
+          </div>
+
+          <div class="secret-item item-4">
+            <div class="secret-badge">🔥 CLUTCH GODDESS</div>
+            <h3>1 v 4 ENTIRE YEAR</h3>
+            <p>She survived every round and came out smelling like roses!</p>
+          </div>
+
+          <div class="secret-item item-5">
+            <div class="secret-badge">💖 SPECIAL MESSAGE</div>
+            <h3>KEEP SHINING, AIMEN!</h3>
+            <p>May your smile stay as infectious as brainrot memes! 😂</p>
+          </div>
+
+          <!-- Secret floating meme stickers in reveal area -->
+          <div class="secret-sticker s1">🍳 PAN OF DESTINY</div>
+          <div class="secret-sticker s2">✨ POOKIE ENERGY 1000%</div>
+          <div class="secret-sticker s3">📦 2026 BIRTHDAY CRATE</div>
+          <div class="secret-sticker s4">💫 ALLAH BLESS YOU</div>
+        </div>
+
+        <!-- Darkness Overlay with dynamic cutout mask in JS -->
+        <canvas id="scopeCanvas" class="scope-darkness-canvas"></canvas>
+
+        <div class="scope-hint-badge">
+          <span>👆 Move your cursor around to scan the mystery ground!</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: BRAINROT MINI-GAMES HUB -->
+    <section id="games" class="games-section">
+      <div class="section-header">
+        <div class="sub-chip">🕹️ PLAYABLE MEME ARCADE</div>
+        <h2 class="section-title">AIMEN'S BRAINROT GAME ARCADE</h2>
+        <p class="section-desc">
+          Test your skills, farm unlimited aura, and secure the ultimate Birthday Chicken Dinner!
+        </p>
+      </div>
+
+      <!-- Game Tabs Navigation -->
+      <div class="game-tabs">
+        <button class="game-tab-btn active" data-game="airdrop-game">
+          <span class="tab-icon">🪂</span>
+          <span class="tab-text">Airdrop Catch Rush</span>
+        </button>
+        <button class="game-tab-btn" data-game="slot-game">
+          <span class="tab-icon">🎰</span>
+          <span class="tab-text">Sixtino Seventino Slot</span>
+        </button>
+        <button class="game-tab-btn" data-game="whack-game">
+          <span class="tab-icon">🍳</span>
+          <span class="tab-text">Pan The Brainrot</span>
+        </button>
+      </div>
+
+      <!-- GAME 1: AIRDROP CATCH RUSH -->
+      <div class="game-panel active" id="airdrop-game">
+        <div class="game-card">
+          <div class="game-hud">
+            <div class="game-stat">
+              <span class="stat-label">SCORE / AURA:</span>
+              <span class="stat-value" id="airdropScore">0</span>
+            </div>
+            <div class="game-stat">
+              <span class="stat-label">TIME REMAINING:</span>
+              <span class="stat-value timer" id="airdropTimer">30s</span>
+            </div>
+            <div class="game-stat">
+              <span class="stat-label">HIGH SCORE:</span>
+              <span class="stat-value" id="airdropHigh">0</span>
+            </div>
+          </div>
+
+          <div class="game-canvas-container">
+            <canvas id="airdropCanvas" width="600" height="380"></canvas>
+            
+            <div class="game-overlay-screen" id="airdropStartScreen">
+              <div class="overlay-content">
+                <h3>🪂 AIRDROP CATCH RUSH</h3>
+                <p>Move your mouse or touch left/right to move <strong>Aimen's Pookie Pan</strong>!</p>
+                <div class="instructions-grid">
+                  <div class="inst-item">📦 Airdrops = +50 Pts</div>
+                  <div class="inst-item">🍗 Chicken Dinner = +100 Pts</div>
+                  <div class="inst-item">🤌 Sixtino Gem = +150 Pts</div>
+                  <div class="inst-item danger">💣 Redzone Bomb = -50 Pts</div>
+                </div>
+                <button class="start-game-btn" id="startAirdropGameBtn">
+                  <span>START BATTLE ROYALE</span>
+                  <span class="btn-arrow">▶</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="game-overlay-screen hidden" id="airdropGameOverScreen">
+              <div class="overlay-content">
+                <h3 class="win-title">🏆 WINNER WINNER CHICKEN DINNER! 🍗</h3>
+                <p id="airdropFinalMsg">Aimen farmed tremendous amounts of Brainrot Aura!</p>
+                <div class="final-score-badge">
+                  FINAL AURA: <span id="finalScoreVal">0</span>
+                </div>
+                <div class="rank-earned" id="rankEarnedVal">👑 RANK: GRANDMASTER SIXTINO POOKIE</div>
+                <button class="start-game-btn" id="restartAirdropBtn">
+                  <span>PLAY AGAIN</span>
+                  <span class="btn-arrow">🔄</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mobile-touch-controls">
+            <button class="touch-ctrl-btn" id="moveLeftBtn">◀ MOVE LEFT</button>
+            <button class="touch-ctrl-btn" id="moveRightBtn">MOVE RIGHT ▶</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GAME 2: SIXTINO SEVENTINO SLOT MACHINE -->
+      <div class="game-panel hidden" id="slot-game">
+        <div class="game-card slot-card">
+          <div class="slot-machine-top">
+            <div class="slot-banner">
+              <span>✨ 60 SIXTINO 70 SEVENTINO CASINO ✨</span>
+            </div>
+            <div class="aura-jackpot">CURRENT POOKIE AURA: <span id="jackpotVal">9,999,999</span></div>
+          </div>
+
+          <div class="slot-reels-box">
+            <div class="reel" id="reel1">
+              <div class="reel-symbol">🤌</div>
+            </div>
+            <div class="reel" id="reel2">
+              <div class="reel-symbol">🍗</div>
+            </div>
+            <div class="reel" id="reel3">
+              <div class="reel-symbol">💖</div>
+            </div>
+          </div>
+
+          <div class="slot-result-box" id="slotResultBox">
+            <div class="slot-result-title" id="slotTitle">READY TO SPIN!</div>
+            <p class="slot-result-desc" id="slotDesc">Pull the lucky birthday lever to roll Aimen's daily brainrot fortune!</p>
+          </div>
+
+          <div class="slot-actions">
+            <button class="spin-lever-btn" id="spinSlotBtn">
+              <span class="lever-glow"></span>
+              <span class="lever-icon">🎰</span>
+              <span>SPIN FOR AURA!</span>
+            </button>
+          </div>
+
+          <div class="payout-legend">
+            <span>🤌 🤌 🤌 = Triple Sixtino Overload</span>
+            <span>🍗 🍗 🍗 = Chicken Dinner Banquet</span>
+            <span>💖 💖 💖 = Maximum Pookie Aura</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- GAME 3: PAN THE BRAINROT (WHACK-A-MEME) -->
+      <div class="game-panel hidden" id="whack-game">
+        <div class="game-card whack-card">
+          <div class="game-hud">
+            <div class="game-stat">
+              <span class="stat-label">PAN HITS:</span>
+              <span class="stat-value" id="whackScore">0</span>
+            </div>
+            <div class="game-stat">
+              <span class="stat-label">TIME LEFT:</span>
+              <span class="stat-value timer" id="whackTimer">20s</span>
+            </div>
+            <div class="game-stat">
+              <span class="stat-label">CLANGS:</span>
+              <span class="stat-value" id="whackClangs">0</span>
+            </div>
+          </div>
+
+          <p class="whack-instructions">
+            🍳 Hit the popping brainrot targets with your golden pan! Watch out for bombs!
+          </p>
+
+          <div class="whack-grid" id="whackGrid">
+            <!-- 6 holes dynamically or statically set -->
+            <div class="whack-hole" data-hole="0">
+              <div class="whack-target">
+                <span class="target-emoji">🤌</span>
+                <span class="target-label">Sixtino</span>
+              </div>
+            </div>
+            <div class="whack-hole" data-hole="1">
+              <div class="whack-target">
+                <span class="target-emoji">🍗</span>
+                <span class="target-label">Chicken</span>
+              </div>
+            </div>
+            <div class="whack-hole" data-hole="2">
+              <div class="whack-target">
+                <span class="target-emoji">🪖</span>
+                <span class="target-label">Lvl 3</span>
+              </div>
+            </div>
+            <div class="whack-hole" data-hole="3">
+              <div class="whack-target">
+                <span class="target-emoji">🧸</span>
+                <span class="target-label">Pookie</span>
+              </div>
+            </div>
+            <div class="whack-hole" data-hole="4">
+              <div class="whack-target">
+                <span class="target-emoji">💣</span>
+                <span class="target-label">Bomb</span>
+              </div>
+            </div>
+            <div class="whack-hole" data-hole="5">
+              <div class="whack-target">
+                <span class="target-emoji">✨</span>
+                <span class="target-label">Aura</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="whack-actions">
+            <button class="start-game-btn" id="startWhackBtn">
+              <span>START PANNING! 🍳</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: POOKIE & PUBG BRAINROT SOUNDBOARD -->
+    <section id="soundboard" class="soundboard-section">
+      <div class="section-header">
+        <div class="sub-chip">🔊 SOUND FX ENGINE</div>
+        <h2 class="section-title">THE BRAINROT SFX SOUNDBOARD</h2>
+        <p class="section-desc">Click any button to trigger custom synthesized audio effects & voice lines!</p>
+      </div>
+
+      <div class="soundboard-grid">
+        <button class="sfx-pad" data-sound="pan">
+          <span class="pad-emoji">🍳</span>
+          <span class="pad-title">Pan Clang</span>
+          <span class="pad-sub">BONK!</span>
+        </button>
+
+        <button class="sfx-pad" data-sound="flare">
+          <span class="pad-emoji">🚨</span>
+          <span class="pad-title">Flare Gun Call</span>
+          <span class="pad-sub">Airdrop Dropping!</span>
+        </button>
+
+        <button class="sfx-pad" data-sound="sixtino">
+          <span class="pad-emoji">🤌</span>
+          <span class="pad-title">Sixtino Seventino</span>
+          <span class="pad-sub">Brainrot Anthem</span>
+        </button>
+
+        <button class="sfx-pad" data-sound="pookie">
+          <span class="pad-emoji">💖</span>
+          <span class="pad-title">Pookie Aura Sparkle</span>
+          <span class="pad-sub">+1000 Aura</span>
+        </button>
+
+        <button class="sfx-pad" data-sound="chicken">
+          <span class="pad-emoji">🍗</span>
+          <span class="pad-title">Chicken Dinner</span>
+          <span class="pad-sub">Victory Chime!</span>
+        </button>
+
+        <button class="sfx-pad" data-sound="birthday">
+          <span class="pad-emoji">🎂</span>
+          <span class="pad-title">Birthday Fanfare</span>
+          <span class="pad-sub">Level Up Song</span>
+        </button>
+
+        <button class="sfx-pad" data-sound="drink">
+          <span class="pad-emoji">🥤</span>
+          <span class="pad-title">Energy Drink</span>
+          <span class="pad-sub">Speed Boost Gulp</span>
+        </button>
+
+        <button class="sfx-pad" data-sound="airdrop">
+          <span class="pad-emoji">🪂</span>
+          <span class="pad-title">Plane Flyover</span>
+          <span class="pad-sub">Crate Inbound</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- SECTION: THE MYSTERY AIRDROP CRATE UNBOXING -->
+    <section id="loot-crate" class="crate-section">
+      <div class="section-header">
+        <div class="sub-chip">🎁 LEGENDARY LOOT DROP</div>
+        <h2 class="section-title">AIMEN'S BIRTHDAY AIRDROP UNBOXING</h2>
+        <p class="section-desc">
+          A high-tier Red & Blue PUBG crate just touched down. Click the crate to break the seal and unlock your birthday surprise!
+        </p>
+      </div>
+
+      <div class="crate-interactive-stage">
+        <!-- Interactive 3D Crate Graphic -->
+        <div class="airdrop-box-wrap" id="airdropBoxWrap">
+          <div class="crate-red-smoke" id="crateSmoke"></div>
+          <div class="airdrop-crate" id="airdropCrate">
+            <!-- Crate Top Lid -->
+            <div class="crate-face crate-top">
+              <div class="cloth-tarp"></div>
+              <div class="crate-straps"></div>
+            </div>
+            <!-- Crate Front Body -->
+            <div class="crate-face crate-front">
+              <div class="blue-bottom"></div>
+              <div class="crate-badge-stencil">AIMEN #1</div>
+              <div class="crate-handle"></div>
+            </div>
+          </div>
+          <div class="crate-click-prompt" id="cratePrompt">
+            <span>✨ CLICK TO OPEN CRATE ✨</span>
+          </div>
+        </div>
+
+        <!-- Hidden Birthday Letter that reveals upon unboxing -->
+        <div class="birthday-letter-modal hidden" id="birthdayLetter">
+          <div class="letter-card">
+            <button class="close-letter-btn" id="closeLetterBtn">&times;</button>
+            <div class="letter-header">
+              <div class="stamp-badge">TOP SECRET BIRTHDAY AIRDROP</div>
+              <h2 class="letter-title">Dearest Aimen 💖🎂</h2>
+              <div class="letter-date">PLAYER DESIGNATION: BIRTHDAY QUEEN</div>
+            </div>
+
+            <div class="letter-body">
+              <p>
+                Wishing you the happiest, most joyful, and most unforgettable Birthday ever! 
+                May your special day be packed with as much excitement as a red flare drop in Pochinki, 
+                and as much sweetness as a whole room full of birthday cakes! 🎂✨
+              </p>
+              
+              <div class="letter-quote-callout">
+                <span class="quote-symbol">🤲</span>
+                <strong>Dua For You:</strong> 
+                <em>"Allah apka naseeb boht boht acha karey. May Allah grant you high stations, pure joy, continuous health, peaceful days, and grant all the purest dreams of your beautiful heart."</em>
+                <span class="quote-symbol">✨</span>
+              </div>
+
+              <p>
+                From the depths of PUBG battlefields to the funniest <em>pookie</em> and 
+                <em>sixtino seventino</em> brainrot moments, you bring incredible energy, fun, 
+                and laughter everywhere you go. Never stop being your amazing, iconic, 
+                and hilarious self!
+              </p>
+
+              <div class="letter-perks">
+                <div class="perk-tag">🛡️ Unlimited Lvl 3 Protection</div>
+                <div class="perk-tag">🍗 Eternal Chicken Dinners</div>
+                <div class="perk-tag">🤌 ∞ Sixtino Seventino Aura</div>
+                <div class="perk-tag">🌟 Allah's Blessings Always</div>
+              </div>
+            </div>
+
+            <div class="letter-footer">
+              <button class="celebrate-more-btn" id="letterConfettiBtn">
+                <span>🎊 BLAST MORE FIREWORKS! 🎊</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="hud-footer">
+      <div class="footer-left">
+        <span>🎮 CRAFTED EXCLUSIVELY FOR AIMEN</span>
+        <span class="sep">•</span>
+        <span>SIXTINO SEVENTINO CERTIFIED 🤌</span>
+      </div>
+      <div class="footer-center">
+        <span>✨ "Allah apka naseeb boht acha karey" — Ameen 🤲</span>
+      </div>
+      <div class="footer-right">
+        <a href="#hero" class="back-top-btn">TOP ⬆</a>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
